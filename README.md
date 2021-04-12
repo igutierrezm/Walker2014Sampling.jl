@@ -5,7 +5,7 @@
 [![Build Status](https://github.com/igutierrezm/Walker2014Sampling.jl/workflows/CI/badge.svg)](https://github.com/igutierrezm/Walker2014Sampling.jl/actions)
 [![codecov](https://codecov.io/gh/igutierrezm/Walker2014Sampling.jl/branch/master/graph/badge.svg?token=o8DGQSTKft)](https://codecov.io/gh/igutierrezm/Walker2014Sampling.jl)
 
-Sampling from a discrete unnormalized [pmf](https://en.wikipedia.org/wiki/Probability_mass_function) in Julia using Walker's algorithm, see Walker (2014) for details.
+Sampling from a discrete unnormalized [pmf](https://en.wikipedia.org/wiki/Probability_mass_function) in Julia using Walker's MCMC algorithm, see Walker (2014) for details.
 
 ## Installation
 
@@ -26,7 +26,7 @@ julia> Pkg.add("https://github.com/igutierrezm/Walker2014Sampling.jl")
 
 ## Usage
 
-Suppose we want to draw the next state in a [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) with target [pmf](https://en.wikipedia.org/wiki/Probability_mass_function) `p()` using the algorithm proposed by Walker (2014) with parameter `k`. Suppose further that the support of `p()` is ℕ and the  current state is `xold`.
+Suppose we want to draw the next state in a [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) with target (unnormalized) pmf `p()` using the algorithm proposed by Walker (2014) with parameter `k`. Suppose further that the support of `p()` is ℕ and the current state is `xold`.
 
 The first step is to set up the environment:
 
