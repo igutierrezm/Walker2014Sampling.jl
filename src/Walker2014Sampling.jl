@@ -74,7 +74,7 @@ Draw the next value in a MCMC with target distribution `p` and current value
 function rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x::Int)
     lmin = max(1 + s.k - x, 1)
     for l = 1:(lmin - 1)
-        p[l] = 0.0
+        s.p[l] = 0.0
     end
     for l = lmin:(2 * s.k - 1)
         j = x - s.k + l
