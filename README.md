@@ -26,7 +26,7 @@ julia> Pkg.add("https://github.com/igutierrezm/Walker2014Sampling.jl")
 
 ## Usage
 
-Suppose we want to draw the next state in a [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) with target (unnormalized) pmf `p()` using Walker's algorithm with parameter `k`. Suppose further that the support of `p()` is ℕ and the current state is `xold`.
+Suppose we want to draw the next state in a [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) with target (unnormalized) pmf `p()` using Walker's algorithm with parameter `k`. Suppose further that the support of `p()` is ℕ and the current state is `x0`.
 
 The first step is to set up the environment:
 
@@ -35,7 +35,7 @@ using Random, Walker2014Sampling
 rng = MersenneTwister(1)
 ```
 
-Then, we create a sampler `s` with parameter `k` using `Walker2014Sampler()`:
+Then, we create a sampler `s` using `Walker2014Sampler()`:
 
 ```julia
 s = Walker2014Sampler(k);
@@ -44,7 +44,7 @@ s = Walker2014Sampler(k);
 Finally, we draw the next state using `rand()`:
 
 ```julia
-xnew = rand(rng, s, p, xold);
+x1 = rand(rng, s, p, x0);
 ``` 
 
 Be aware that both `rng` and `s` are modified in the process. 

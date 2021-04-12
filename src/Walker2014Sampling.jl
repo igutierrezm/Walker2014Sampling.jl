@@ -13,7 +13,7 @@ export
 """
     Walker2014Sampler(k::Int)
 
-The sampler proposed by Walker (2014), with parameter `k`.
+Walker's sampler with parameter `k`.
 """
 struct Walker2014Sampler
     k::Int
@@ -66,23 +66,22 @@ function rcat(rng, p)
 end
 
 """
-    rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x::Int)
+    rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x0::Int)
 
-Draw the next value in a MCMC with target distribution `p` and current value 
-`x`, using the sampler `s`. Both `rng` and `s` are modified in the process.
+Draw the next state in a MCMC with target distribution `p` using the sampler `s`, assuming that the current state is `x0`. Both `rng` and `s` are modified in the process.
 """
-function rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x::Int)
-    lmin = max(1 + s.k - x, 1)
+function rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x0::Int)
+    lmin = max(1 + s.k - x0, 1)
     for l = 1:(lmin - 1)
         s.p[l] = 0.0
     end
     for l = lmin:(2 * s.k - 1)
-        j = x - s.k + l
+        j = x0 - s.k + l
         s.p[l] = p(j)
     end
     get_q!(s.q, s.p)
     get_r!(s.r, s.q, s.p)
-    return x += rcat(rng, s.r) - s.k
+    return x0 += rcat(rng, s.r) - s.k
 end
 
 end # module 
