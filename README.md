@@ -5,7 +5,7 @@
 [![Build Status](https://github.com/igutierrezm/Walker2014Sampling.jl/workflows/CI/badge.svg)](https://github.com/igutierrezm/Walker2014Sampling.jl/actions)
 [![codecov](https://codecov.io/gh/igutierrezm/Walker2014Sampling.jl/branch/master/graph/badge.svg?token=o8DGQSTKft)](https://codecov.io/gh/igutierrezm/Walker2014Sampling.jl)
 
-A minimalist implementation of the MCMC sampler proposed by Walker (2014).
+Sampling from a discrete unnormalized [pmf](https://en.wikipedia.org/wiki/Probability_mass_function) in Julia using Walker's algorithm, see Walker (2014) for details.
 
 ## Installation
 
