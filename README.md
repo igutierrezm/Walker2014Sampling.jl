@@ -26,7 +26,7 @@ julia> Pkg.add("https://github.com/igutierrezm/Walker2014Sampling.jl")
 
 ## Usage
 
-Suppose we want to draw the next state in a [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) with target [pmf](https://en.wikipedia.org/wiki/Probability_mass_function) `p()` using the algorithm proposed by Walker (2014) with parameter `k`. Suppose that the support of `p()` is ℕ and the  current state is `xold`.
+Suppose we want to draw the next state in a [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) with target [pmf](https://en.wikipedia.org/wiki/Probability_mass_function) `p()` using the algorithm proposed by Walker (2014) with parameter `k`. Suppose further that the support of `p()` is ℕ and the  current state is `xold`.
 
 The first step is to set up the environment:
 
