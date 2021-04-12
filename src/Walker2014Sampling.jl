@@ -11,11 +11,9 @@ export
     Walker2014Sampler
 
 """
-    Walker2014Sampler(k::Int, p::Vector{Float64})
+    Walker2014Sampler(k::Int)
 
-The transition pmf proposed by Walker (2014), with parameter `k` and target 
-pmf π(⋅), represented by a `(2k - 1)` dimensional vector `p` such that 
-`p[j] ∝ π(x - k + j)`, where `x` is the current value in the MC.
+The sampler proposed by Walker (2014), with parameter `k`.
 """
 struct Walker2014Sampler
     k::Int
