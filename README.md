@@ -10,37 +10,39 @@ A minimalist implementation of the MCMC sampler proposed by Walker (2014).
 ## Installation
 
 
-Install with the Julia package manager Pkg, just like any other registered Julia package:
+Install with the Julia package manager Pkg:
 
 ```julia
 # Press ']' to enter the Pkg REPL mode.
-pkg> add https://github.com/igutierrezm/Walker2014Sampler.jl  
+pkg> add https://github.com/igutierrezm/Walker2014Sampling.jl  
 ```
 
 or
 
 ```julia
 julia> using Pkg; 
-julia> Pkg.add("https://github.com/igutierrezm/Walker2014Sampler.jl")
+julia> Pkg.add("https://github.com/igutierrezm/Walker2014Sampling.jl")
 ```
 
 ## Usage
 
-Let π(⋅) be your target distribution, and let `x` the current value in your MC. Then, you can define the transition distribution for the next iteration as follows:
+Suppose we want to draw the next value in a MCMC with target distribution `p()` and current value `xold`, using the algorithm proposed by Walker (2014) with parameter `k`.
+
+The first step is to set up the environment:
 
 ```julia
-td = TransitionDistribution(k, p);
-``` 
+using Random, Walker2014Sampling
+rng = MersenneTwister(1)
+```
 
-where `k` is the tuning parameter described in the article, and `p` is a `(2k - 1)` dimensional vector such that each `p[j]` is proportional to π(x - k + j).
-
-Once the transition distribution is defined, you can sample the next value in your MC as follows:
+Then, we create a sampler `s` and draw the next value using `rand()`:
 
 ```julia
-xnew = rand(rng, td, x);
+s = Walker2014Sampler(k);
+xnew = rand(rng, s, p, xold);
 ``` 
 
-where `rng` is any `AbstractRNG` object. Note that both `rng` and `s` are modified in the process.
+We note that both `rng` and `s` are modified in the process. 
 
 ## References
 
