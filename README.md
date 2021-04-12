@@ -26,7 +26,7 @@ julia> Pkg.add("https://github.com/igutierrezm/Walker2014Sampling.jl")
 
 ## Usage
 
-Suppose we want to draw the next value in a MCMC with target distribution `p()` and current value `xold`, using the algorithm proposed by Walker (2014) with parameter `k`.
+Suppose we want to draw the next state in a [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) with target [pmf](https://en.wikipedia.org/wiki/Probability_mass_function) `p()` using the algorithm proposed by Walker (2014) with parameter `k`. Suppose that the support of `p()` is \{1, 2, ...\} and the  current state is `xold`.
 
 The first step is to set up the environment:
 
@@ -35,7 +35,7 @@ using Random, Walker2014Sampling
 rng = MersenneTwister(1)
 ```
 
-Then, we create a sampler `s` and draw the next value using `rand()`:
+Then, we create a sampler `s` and draw the next state using `rand()`:
 
 ```julia
 s = Walker2014Sampler(k);
