@@ -68,8 +68,8 @@ end
 """
     rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x::Int)
 
-Draw the next value of a MCMC with target distribution `p` and current value 
-`x`, using the algorithm proposed by Walker (2014), represented by `s`.
+Draw the next value in a MCMC with target distribution `p` and current value 
+`x`, using the sampler `s`.
 """
 function rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x::Int)
     lmin = max(1 + s.k - x, 1)
