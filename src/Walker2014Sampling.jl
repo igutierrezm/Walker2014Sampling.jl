@@ -68,7 +68,7 @@ end
 """
     rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x0::Int)
 
-Draw the next state in a MCMC with target distribution `p` using the sampler `s`, assuming that the current state is `x0`. Both `rng` and `s` are modified in the process.
+Draw the next state in a MCMC with target unnormalized pdf `p` using the sampler `s`, assuming that the current state is `x0`. Both `rng` and `s` are modified in the process.
 """
 function rand(rng::AbstractRNG, s::Walker2014Sampler, p::Function, x0::Int)
     lmin = max(1 + s.k - x0, 1)
