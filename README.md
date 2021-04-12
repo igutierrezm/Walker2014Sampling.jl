@@ -35,14 +35,20 @@ using Random, Walker2014Sampling
 rng = MersenneTwister(1)
 ```
 
-Then, we create a sampler `s` and draw the next state using `rand()`:
+Then, we create a sampler `s` with parameter `k` using `Walker2014Sampler()`:
+
+```julia
+s = Walker2014Sampler(k);
+``` 
+
+Finally, we draw the next state using `rand()`:
 
 ```julia
 s = Walker2014Sampler(k);
 xnew = rand(rng, s, p, xold);
 ``` 
 
-We note that both `rng` and `s` are modified in the process. 
+Be aware that both `rng` and `s` are modified in the process. 
 
 ## References
 
