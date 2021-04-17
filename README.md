@@ -10,18 +10,18 @@ Sampling from an unnormalized [pmf](https://en.wikipedia.org/wiki/Probability_ma
 ## Installation
 
 
-Install with the Julia package manager Pkg:
+Install with the Julia package manager Pkg, just like any other registered Julia package:
 
 ```julia
 # Press ']' to enter the Pkg REPL mode.
-pkg> add https://github.com/igutierrezm/Walker2014Sampling.jl  
+pkg> add Walker2014Sampling
 ```
 
 or
 
 ```julia
 julia> using Pkg; 
-julia> Pkg.add("https://github.com/igutierrezm/Walker2014Sampling.jl")
+julia> Pkg.add("Walker2014Sampling")
 ```
 
 ## Usage
