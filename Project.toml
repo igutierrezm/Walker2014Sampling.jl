@@ -1,7 +1,7 @@
 name = "Walker2014Sampling"
 uuid = "a2f0375b-2a06-4a22-9386-496d263139c3"
 authors = ["Iván Gutiérrez <ivangutierrez1988@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
