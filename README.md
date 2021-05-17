@@ -44,7 +44,7 @@ s = Walker2014Sampler(k);
 Finally, we draw the next state using `rand()`:
 
 ```julia
-x1 = rand(rng, s, p, x0);
+x1 = rand(rng, p, s, x0);
 ``` 
 
 Be aware that both `rng` and `s` are modified in the process. 

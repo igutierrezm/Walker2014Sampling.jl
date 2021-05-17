@@ -9,7 +9,7 @@ x = 5;
 p(x) = 1.0
 s = Walker2014Sampler(k);
 rng = MersenneTwister(0);
-rand(rng, s, p, x)
+rand(rng, p, s, x)
 
 @test sum(s.r) ≈ 1.0
 @test s.q[1] ≈ (s.p[1] + s.p[2] + s.p[3])^(-1)
@@ -23,7 +23,7 @@ x = 2;
 p(x) = 1.0
 s = Walker2014Sampler(k);
 rng = MersenneTwister(0);
-rand(rng, s, p, x)
+rand(rng, p, s, x)
 
 @test sum(s.r) ≈ 1.0
 @test s.q[1] ≈ (s.p[1] + s.p[2] + s.p[3])^(-1)
@@ -37,7 +37,7 @@ x = 5;
 p(x) = Float64(x >= 2)
 s = Walker2014Sampler(k);
 rng = MersenneTwister(0);
-rand(rng, s, p, x)
+rand(rng, p, s, x)
 
 @test sum(s.r) ≈ 1.0
 @test s.q[1] ≈ (s.p[1] + s.p[2] + s.p[3])^(-1)
